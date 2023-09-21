@@ -1,0 +1,19 @@
+.movies-page-buttons {
+  padding: 0;
+  /* border: 1px solid white; */
+  margin: 0;
+  gap: 30px;
+  /* background-color: yellow; */
+
+  display: flex;
+}
+.movies-page-buttons  button{
+    border: 1px solid white;
+    font-size: 15px;
+
+
+}
+main{
+    margin: 30px;
+    padding: 30px;
+}

@@ -1,0 +1,27 @@
+.header{
+  position: relative;
+  top: 0;
+  /* background-color: aliceblue; */
+  /* border: 1px solid blue; */
+}
+.nav-bar {
+  position: relative;
+  top: 0;
+  /* width: 100vw; */
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  /* background-color: beige; */
+ 
+}
+.nav-bar ul {
+  display: flex;
+  gap: 10em;
+  list-style-type: none;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+nav{
+
+  border: 1 px solid blue;
+}
