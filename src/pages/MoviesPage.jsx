@@ -3,12 +3,19 @@ import { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import "../pages/MoviesPage.css"
+import "../pages/MoviesPage.css";
 
 export function MoviesPage() {
   const { moviesList } = useParams();
   const [movies, setMovies] = useState([{ name: "christian" }]);
   const [isLoading, setIsLoading] = useState(false);
+  const [genreFilter, setGenreFilter] = useState("all");
+  const drama = movies.filter((movie)=> movie.genre === "drama");
+  const action = movies.filter((movie)=> movie.genre === "action");
+  const crime = movies.filter((movie)=> movie.genre === "crime");
+  const western = movies.filter((movie)=> movie.genre === "western");
+  const superhero = movies.filter((movie)=> movie.genre === "superhero");
+
   // console.log(movies)
   // console.log(isLoading);
   useEffect(() => {
@@ -26,8 +33,18 @@ export function MoviesPage() {
         setIsLoading(false);
       }
     }
+
     loadMovieList();
   }, []);
+
+  let filteredMovies;
+  if(genreFilter === 'all'){
+    filteredMovies = movies
+  }else{ 
+    filteredMovies = movies.filter((movie)=>{return movie.genre === genreFilter})
+  }
+
+
   if (isLoading) {
     return (
       <>
@@ -62,7 +79,7 @@ export function MoviesPage() {
                 key={movie.id}
                 className="movies"
               >
-                <li>{movie.title}</li>{" "}
+                <li key={movie.id}>{movie.title}</li>{" "}
               </Link>
             );
           })}
